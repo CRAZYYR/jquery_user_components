@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>下拉广告演示=====byMe</title>
+<script src="jquery-3.1.1/jquery-3.1.1.min.js"></script>
+<script src="jquery-3.1.1/jquery-ui.js"></script>
+<style type="text/css">
+*{
+	margin:0 0px;
+	padding: 0 0px;
+}
+.body{
+margin:auto;
+width:100%;
+}
+
+</style>
+</head>
+<body>
+		<!-- 广告 -->
+		<div id="adver" class="adver" style="height:300px;display: none;">
+				<img id="addcon" src="adver.jpg" width="100%" height="300px;">
+
+		</div>
+		<!-- 主体 -->
+		<div class="body">
+				<img  src="body.png" width="100%">
+		</div>
+<script type="text/javascript">
+
+	// 不带缓冲的运动
+	$(document).ready(function() {
+		
+		var oad=document.getElementById('adver');
+		var oadcon=document.getElementById('addcon');
+		var maxh=oadcon.height;
+		var h=0;
+		var step=5;
+		function down(){
+		//	var step=(maxh-oad.offsetHeight)/5;
+			oad.style.height=h+'px';
+			oad.style.display='block';
+			if(h<maxh){
+			h+=step;
+			setTimeout(down,30);
+			}else{
+
+				setTimeout(up,2000);
+			};
+		}
+			function up(){
+			
+			if(h>0){
+			h-=step;
+			oad.style.height=h+'px';
+			setTimeout(up,30);
+			}else{
+				oad.style.height=0+'px';
+			};
+		}
+
+		setTimeout(down,2000);
+
+	})
+
+
+</script>
+
+</body>
+</html>
