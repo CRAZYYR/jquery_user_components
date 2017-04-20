@@ -29,31 +29,37 @@ width:100%;
 		</div>
 <script type="text/javascript">
 
-	// 不带缓冲的运动
+	 // 有缓冲的运动
 	$(document).ready(function() {
 		
 		var oad=document.getElementById('adver');
 		var oadcon=document.getElementById('addcon');
 		var maxh=oadcon.height;
 		var h=0;
-		var step=5;
+		var step=5;	
+
+	// 广告下拉显示
 		function down(){
-		//	var step=(maxh-oad.offsetHeight)/5;
+			 
 			oad.style.height=h+'px';
 			oad.style.display='block';
 			if(h<maxh){
+		//	step=(maxh-oad.offsetHeight)/7;	
 			h+=step;
 			setTimeout(down,30);
 			}else{
 
 				setTimeout(up,2000);
+
 			};
 		}
+
+		// 广告向上收起
 			function up(){
-			
 			if(h>0){
 			h-=step;
 			oad.style.height=h+'px';
+			oad.style.display='block';
 			setTimeout(up,30);
 			}else{
 				oad.style.height=0+'px';
